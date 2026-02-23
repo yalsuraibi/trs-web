@@ -1,9 +1,10 @@
 import logo from "./assets/Logo_Ar2.png"
 import { useEffect } from "react"
+import type { ReactNode } from "react"
 
 type Service = {
   title: string
-  icon: JSX.Element
+  icon: ReactNode
 }
 
 const ServiceIconContract = () => (
