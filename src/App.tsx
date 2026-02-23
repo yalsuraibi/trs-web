@@ -1,4 +1,5 @@
 import logo from "./assets/Logo_Ar2.png"
+import { useEffect } from "react"
 
 type Service = {
   title: string
@@ -130,10 +131,26 @@ const services: Service[] = [
 ]
 
 function App() {
+
+  useEffect(() => {
+    const els = document.querySelectorAll<HTMLElement>("[data-reveal]")
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) e.target.classList.add("isVisible")
+        })
+      },
+      { threshold: 0.12 }
+    )
+  
+    els.forEach((el) => io.observe(el))
+    return () => io.disconnect()
+  }, [])
+
   return (
     <div>
       <header className="header">
-        <div className="container headerInner">
+        <div className="headerContainer  headerInner">
           <div className="logoRow">
             <img className="logoImg" src={logo} alt="TRS logo" />
             <div className="brandName"></div>
@@ -150,7 +167,7 @@ function App() {
 
       <main>
         <section className="hero">
-          <div className="container">
+          <div className="containerWide">
             <h1 className="heroTitle">نقطة انطلاقك قبـــــــــــــل اتخــــاذ أي قــــرار</h1>
             <p className="heroText">نبي نضيف نص هنا. عطوني اقتراحاتكم</p>
 
@@ -161,8 +178,8 @@ function App() {
           </div>
         </section>
 
-        <section id="about" className="section">
-          <div className="container">
+        <section id="about" className="section reveal" data-reveal>
+          <div className="containerWide">
             <h2 className="sectionTitle">من نحن</h2>
             <p className="sectionText">
               تـرس، هــي شركــة مـحامـــاة مـتخصصــــــة في تـقديـــــم الخـدمــــات
@@ -175,8 +192,8 @@ function App() {
           </div>
         </section>
 
-        <section id="services" className="section sectionAlt" style={{ background: "#faf7f8" }}>
-          <div className="container">
+        <section id="services" className="section sectionAlt reveal" data-reveal style={{ background: "#faf7f8" }}>
+          <div className="containerWide">
             <h2 className="sectionTitle">الخدمات</h2>
 
             <div className="grid">
@@ -190,10 +207,10 @@ function App() {
           </div>
         </section>
 
-        <section id="team" className="section">
-          <div className="container">
+        <section id="team" className="section reveal" data-reveal>
+          <div className="containerWide">
             <h2 className="sectionTitle">الفريق</h2>
-            <p className="sectionText">أسماء الفريق ومناصبهم بشكل بسيط. يمكننا إضافة صور لاحقاً.</p>
+            <p className="sectionText">أسماء الفريق ومناصبهم بشكل بسيط.</p>
 
             <div className="grid">
               {[
@@ -210,10 +227,10 @@ function App() {
           </div>
         </section>
 
-        <section id="contact" className="section sectionAlt" style={{ background: "#faf7f8" }}>
-          <div className="container">
+        <section id="contact" className="section sectionAlt reveal" data-reveal style={{ background: "#faf7f8" }}>
+          <div className="containerWide">
             <h2 className="sectionTitle">تواصل معنا</h2>
-            <p className="sectionText">بيانات التواصل نص تجريبي. سنستبدله ببيانات المكتب لاحقاً.</p>
+            <p className="sectionText">بيانات التواصل نص تجريبي. </p>
 
             <div className="grid">
               <div className="card">
@@ -222,6 +239,9 @@ function App() {
                 <p className="cardText">الهاتف: 000000000</p>
                 <p className="cardText">البريد: info@trs.com</p>
               </div>
+
+              
+
 
               <div className="card">
                 <h3 className="cardTitle">أرسل رسالة</h3>
@@ -237,7 +257,21 @@ function App() {
                   </button>
                 </form>
               </div>
+
+              
+
             </div>
+            <div style={{ marginTop: 12, borderRadius: 14, overflow: "hidden", border: "1px solid var(--border)" }}>
+              <iframe
+    title="موقع المكتب"
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14493.578764868067!2d46.642787273927986!3d24.747653054351755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2ee2bdce7f6e45%3A0x2c54683f7a107fc4!2z2YXYtdix2YEg2KfZhNix2KfYrNit2YogfCBhbHJhamhpIGJhbms!5e0!3m2!1sen!2sus!4v1771812994277!5m2!1sen!2sus"
+    width="100%"
+    height="320"
+    style={{ border: 0, display: "block" }}
+    loading="lazy"
+    referrerPolicy="no-referrer-when-downgrade"
+  />
+</div>
           </div>
         </section>
 
@@ -250,3 +284,7 @@ function App() {
 }
 
 export default App
+
+
+
+

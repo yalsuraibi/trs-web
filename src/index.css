@@ -26,7 +26,7 @@
 
 :root {
   --brand1: #541f2f;
-  --brand2: #e9cfda;
+  --brand2: #b6997b;
   --brand3: #151515;
 
   --bg: #ffffff;
@@ -75,9 +75,17 @@ a {
 a:hover {
   opacity: 0.85;
 }
-
+.containerWide {
+  width: min(1400px, calc(100% - 80px));
+  margin: 0 auto;
+}
 .container {
   width: min(1120px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+.headerContainer {
+  width: min(1400px, calc(100% - 80px));
   margin: 0 auto;
 }
 
@@ -94,13 +102,13 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 90px;   
+  height: 90px;
 }
 
 .nav {
   display: flex;
-  gap: 18px;
-  font-weight: 400;
+  gap: 22px;
+  font-weight: 550;
   color: var(--subtext);
 }
 
@@ -183,9 +191,9 @@ a:hover {
 
 .sectionText {
   margin: 0;
-  color: rgba(21, 21, 21, 0.7);
+  color: var(--brand3);
   max-width: 760px;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .grid {
@@ -204,6 +212,7 @@ a:hover {
 
 .cardTitle {
   margin: 0;
+  color:#541f2f;
   font-weight: 700;
   line-height: 1.35;
 }
@@ -217,7 +226,7 @@ a:hover {
 .cardIcon svg {
   width: 100%;
   height: 100%;
-  stroke: var(--brand1);
+  stroke: var(--brand2);
   stroke-width: 1.7;
   fill: none;
 }
@@ -231,4 +240,49 @@ a:hover {
 }
 .sectionAlt {
   background: rgba(233, 207, 218, 0.22);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+section[id] {
+  scroll-margin-top: 110px;
+}
+
+.card {
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(21, 21, 21, 0.12);
+  border-color: rgba(84, 31, 47, 0.25);
+}
+
+.btnPrimary,
+.btnGhost {
+  transition: transform 160ms ease, opacity 160ms ease;
+}
+
+.btnPrimary:hover,
+.btnGhost:hover {
+  transform: translateY(-1px);
+  opacity: 0.95;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 1000ms ease, transform 1000ms ease;
+}
+
+.reveal.isVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { transition: none; transform: none; opacity: 1; }
 }
