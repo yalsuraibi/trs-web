@@ -1,7 +1,9 @@
 import logo from "./assets/Logo_Ar2.png"
-import { useEffect } from "react"
+import { useEffect, useRef } from "react"
 import type { ReactNode } from "react"
-
+import client1 from "./assets/clients/client1.png"
+import client2 from "./assets/clients/client2.png"
+import client3 from "./assets/clients/client3.png"
 type Service = {
   title: string
   icon: ReactNode
@@ -132,6 +134,26 @@ const services: Service[] = [
 ]
 
 function App() {
+  const scrollerRef = useRef<HTMLDivElement | null>(null)
+
+  const scrollByAmount = (dir: "left" | "right") => {
+    const el = scrollerRef.current
+    if (!el) return
+    const amount = Math.round(el.clientWidth * 0.75)
+    el.scrollBy({ left: dir === "left" ? -amount : amount, behavior: "smooth" })
+  }
+
+  const clients = [
+    { name: "Client1", logo: client1, scale: 1.6, y: -12 },
+    { name: "Client2", logo: client2, scale: 1.5, y: 0},
+    { name: "Client3", logo: client3, scale: 2.3, y: -15 },
+    { name: "Client1", logo: client1, scale: 1.6, y: -12 },
+    { name: "Client2", logo: client2, scale: 1.5, y: 0},
+    { name: "Client3", logo: client3, scale: 2.3, y: -15 },
+    { name: "Client1", logo: client1, scale: 1.6, y: -12 },
+    { name: "Client2", logo: client2, scale: 1.5, y: 0},
+    { name: "Client3", logo: client3, scale: 2.3, y: -15 }
+  ]
 
   useEffect(() => {
     const els = document.querySelectorAll<HTMLElement>("[data-reveal]")
@@ -160,7 +182,7 @@ function App() {
           <nav className="nav">
             <a href="#about">من نحن</a>
             <a href="#services">الخدمات</a>
-            <a href="#team">الفريق</a>
+            <a href="#clients">عملاؤنا</a>
             <a href="#contact">تواصل</a>
           </nav>
         </div>
@@ -170,7 +192,7 @@ function App() {
         <section className="hero">
           <div className="containerWide">
             <h1 className="heroTitle">نقطة انطلاقك قبـــــــــــــل اتخــــاذ أي قــــرار</h1>
-            <p className="heroText">نبي نضيف نص هنا. عطوني اقتراحاتكم</p>
+            <p className="heroText">حلول قانونية حديثــــــــــــــــــــــــــــــــــة</p>
 
             <div className="heroButtons">
               <button className="btnPrimary">اتصل الآن</button>
@@ -208,25 +230,31 @@ function App() {
           </div>
         </section>
 
-        <section id="team" className="section reveal" data-reveal>
-          <div className="containerWide">
-            <h2 className="sectionTitle">الفريق</h2>
-            <p className="sectionText">أسماء الفريق ومناصبهم بشكل بسيط.</p>
+<section id="clients" className="section">
+        <div className="containerWide">
+          <h2 className="sectionTitle">عملاؤنا</h2>
+          <p className="sectionText">نماذج من الجهات التي تشرفنا بخدمتها.</p>
 
-            <div className="grid">
-              {[
-                { name: "محام ١", role: "شريك" },
-                { name: "محام ٢", role: "مستشار قانوني" },
-                { name: "محام ٣", role: "محام" }
-              ].map((p) => (
-                <div className="card" key={p.name}>
-                  <h3 className="cardTitle">{p.name}</h3>
-                  <p className="cardText">{p.role}</p>
-                </div>
+          <div className="clientsWrap">
+            <button className="clientsArrow" type="button" onClick={() => scrollByAmount("right")}>
+              ‹
+            </button>
+
+            <div className="clientsScroller" ref={scrollerRef}>
+              {clients.map((c) => (
+                <div className="clientItem">
+                <img src={c.logo} className="clientLogo" style={{ transform: `scale(${c.scale})` }}
+                />
+              </div>
               ))}
             </div>
+
+            <button className="clientsArrow" type="button" onClick={() => scrollByAmount("left")}>
+              ›
+            </button>
           </div>
-        </section>
+        </div>
+      </section>
 
         <section id="contact" className="section sectionAlt reveal" data-reveal style={{ background: "#faf7f8" }}>
           <div className="containerWide">

@@ -26,7 +26,7 @@
 
 :root {
   --brand1: #541f2f;
-  --brand2: #b6997b;
+  --brand2: rgba(129, 165, 198);
   --brand3: #151515;
 
   --bg: #ffffff;
@@ -146,7 +146,7 @@ a:hover {
 .heroText {
   margin: 16px 0 0;
   max-width: 640px;
-  color: rgba(233, 207, 218, 0.85);
+  color: rgba(129, 165, 198);
   font-weight: 400;
   font-size: 18px;
 }
@@ -286,3 +286,67 @@ section[id] {
   html { scroll-behavior: auto; }
   .reveal { transition: none; transform: none; opacity: 1; }
 }
+
+.clientsWrap {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: 46px 1fr 46px;
+  gap: 12px;
+  align-items: center;
+}
+
+.clientsArrow {
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--brand1);
+  font-size: 22px;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+
+.clientsArrow:hover {
+  border-color: rgba(84, 31, 47, 0.3);
+}
+
+.clientsScroller {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 20px 0;
+}
+
+.clientsScroller::-webkit-scrollbar {
+  display: none;
+}
+
+
+
+.clientLogo {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.25s ease;
+}
+
+
+.clientItem {
+  flex: 0 0 auto;
+  width: 160px;           /* each logo gets same slot */
+  height: 70px;
+  display: grid;
+  place-items: center;
+}
+
+.clientItem:hover {
+  transform: scale(1.08);
+}
+.clientItem {
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
