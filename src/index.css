@@ -238,6 +238,7 @@ a:hover {
   font-weight: 300;
   font-size: 14px;
 }
+
 .sectionAlt {
   background: rgba(233, 207, 218, 0.22);
 }
@@ -326,7 +327,6 @@ section[id] {
 }
 
 
-
 .clientLogo {
   height: 60px;
   width: auto;
@@ -350,3 +350,122 @@ section[id] {
   transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
+.aboutBox {
+  position: relative;
+}
+
+.aboutMore {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 320ms ease;
+}
+
+.aboutBox.isOpen .aboutMore {
+  max-height: 1000px; /* increase if you add more text */
+}
+
+.aboutToggle {
+  margin-top: 16px;
+}
+
+.aboutMore {
+  opacity: 0;
+  transform: translateY(6px);
+  transition: max-height 320ms ease, opacity 220ms ease, transform 220ms ease;
+}
+
+.aboutBox.isOpen .aboutMore {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.whyWrap {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.whyTitle h3 {
+  margin: 0;
+  color: var(--brand1);
+  font-weight: 700;
+  font-size: 46px;
+  line-height: 1.1;
+}
+
+.whyGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 26px;
+}
+
+.whyCard {
+  text-align: center;
+}
+
+.whyIcon {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 10px;
+  color: #b08f78; /* beige icon stroke */
+}
+
+.whyCard h4 {
+  margin: 0 0 10px;
+  color: var(--brand1);
+  font-weight: 700;
+  font-size: 28px;
+}
+
+.whyCard p {
+  margin: 0;
+  color: #b08f78;
+  font-weight: 300;
+  font-size: 22px;
+  line-height: 1.8;
+}
+
+
+
+.vmSection {
+  margin-top: 34px;
+  background: var(--brand1); /* #541F2F */
+  border-radius: 18px;
+  padding: 46px 44px;
+}
+
+.vmGrid {
+  display: grid;
+  grid-template-columns: 1fr 2px 1fr;
+  gap: 34px;
+  align-items: center;
+}
+
+.vmDivider {
+  width: 2px;
+  height: 180px;
+  background: rgba(233, 207, 218, 0.55); /* brand2 with transparency */
+  justify-self: center;
+}
+
+.vmTitle {
+  margin: 0 0 18px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1.05;
+}
+
+.vmText {
+  margin: 0;
+  color: rgba(233, 207, 218, 0.95); /* brand2 */
+  font-weight: 300;
+  font-size: 26px;
+  line-height: 1.9;
+}
+
+.vmSection {
+  direction: rtl;
+}

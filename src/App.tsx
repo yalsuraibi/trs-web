@@ -1,5 +1,5 @@
 import logo from "./assets/Logo_Ar2.png"
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState  } from "react"
 import type { ReactNode } from "react"
 import client1 from "./assets/clients/client1.png"
 import client2 from "./assets/clients/client2.png"
@@ -134,6 +134,7 @@ const services: Service[] = [
 ]
 
 function App() {
+  const [aboutOpen, setAboutOpen] = useState(false)
   const scrollerRef = useRef<HTMLDivElement | null>(null)
 
   const scrollByAmount = (dir: "left" | "right") => {
@@ -201,19 +202,114 @@ function App() {
           </div>
         </section>
 
-        <section id="about" className="section reveal" data-reveal>
-          <div className="containerWide">
-            <h2 className="sectionTitle">من نحن</h2>
-            <p className="sectionText">
-              تـرس، هــي شركــة مـحامـــاة مـتخصصــــــة في تـقديـــــم الخـدمــــات
-              الاسـتشاريـة والحــلول الــقانــونــية ومهــتمة في تــفعيل ورفــع الــوعــي
-              بــالــدور الــوقــائي لــدى المـنشآت والأفـراد، وذلـك لـتعز يـز فـرص
-              الـنجاح والـقدرة الـتنافسـية في الـسوق المحـلية والـدولـية بـالـكشف
-              المـبكر عـن المـشكلات وتـجنّب وقـوعـها، والمـحافـظة على استقرار
-              التعاملات القانونية.
-            </p>
-          </div>
-        </section>
+        <section id="about" className="section">
+  <div className="containerWide">
+    <h2 className="sectionTitle">من نحن</h2>
+
+    <div className={`aboutBox ${aboutOpen ? "isOpen" : ""}`}>
+      <p className="sectionText">
+        تـرس، هــي شركــة مـحامـــاة مـتخصصــــــة في تـقديـــــم الخـدمــــات الاسـتشاريـة
+        والحــلول الــقانــونــية ومهــتمة في تــفعيل ورفــع الــوعــي بــالــدور الــوقــائي لــدى
+        المـنشآت والأفـراد، وذلـك لـتعز يـز فـرص الـنجاح والـقدرة الـتنافسـية في الـسوق
+        المحـلية والـدولـية بـالـكشف المـبكر عـن المـشكلات وتـجنّب وقـوعـها، والمـحافـظة
+        على استقرار التعاملات القانونية.
+      </p>
+
+      <div className="aboutMore">
+  <div className="whyWrap">
+    <div className="whyTitle">
+      <h3>لماذا اسم ترس؟</h3>
+    </div>
+
+    <div className="whyGrid">
+      <div className="whyCard">
+        <div className="whyIcon">
+          {/* Gear icon */}
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+  <circle
+    cx="12"
+    cy="12"
+    r="3"
+    stroke="currentColor"
+    strokeWidth="1.8"
+  />
+  <path
+    d="M19.4 12a7.4 7.4 0 0 0-.1-1l2-1.6-2-3.4-2.4.7a7.3 7.3 0 0 0-1.7-1l-.4-2.5H9.2l-.4 2.5a7.3 7.3 0 0 0-1.7 1l-2.4-.7-2 3.4 2 1.6a7.4 7.4 0 0 0-.1 1c0 .34.03.67.1 1l-2 1.6 2 3.4 2.4-.7c.5.4 1.1.7 1.7 1l.4 2.5h5.6l.4-2.5c.6-.3 1.2-.6 1.7-1l2.4.7 2-3.4-2-1.6c.07-.33.1-.66.1-1Z"
+    stroke="currentColor"
+    strokeWidth="1.6"
+    strokeLinejoin="round"
+  />
+</svg>
+        </div>
+        <h4>الترس</h4>
+        <p>ضع وصفكم هنا كما في التصميم. استبدله بالنص الحقيقي لاحقاً.</p>
+      </div>
+
+      <div className="whyCard">
+        <div className="whyIcon">
+          {/* Lock icon */}
+          <svg width="54" height="54" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M7 11V8a5 5 0 0 1 10 0v3" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
+            <path d="M6.5 11h11A1.5 1.5 0 0 1 19 12.5v7A1.5 1.5 0 0 1 17.5 21h-11A1.5 1.5 0 0 1 5 19.5v-7A1.5 1.5 0 0 1 6.5 11Z" stroke="currentColor" strokeWidth="1.6"/>
+            <path d="M12 15v3" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
+          </svg>
+        </div>
+        <h4>التُرس</h4>
+        <p>ضع وصفكم هنا كما في التصميم. استبدله بالنص الحقيقي لاحقاً.</p>
+      </div>
+
+      <div className="whyCard">
+        <div className="whyIcon">
+          {/* Shield icon */}
+          <svg width="54" height="54" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 3l8 4v6c0 5-3.4 8.7-8 10-4.6-1.3-8-5-8-10V7l8-4Z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round"/>
+            <path d="M8.5 12.5l2.2 2.2 4.8-5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </div>
+        <h4>الترس</h4>
+        <p>ضع وصفكم هنا كما في التصميم. استبدله بالنص الحقيقي لاحقاً.</p>
+      </div>
+    </div>
+  </div>
+
+  <div className="vmSection">
+  <div className="vmGrid">
+    <div className="vmCol">
+      <h3 className="vmTitle">الرؤية</h3>
+      <p className="vmText">
+        أن نكون من الرواد في تقديم خدماتنا وفق أعلى المعايير، وبذل العناية اللازمة لرفع الوعي
+        بالثقافة القانونية على العموم وبالثقافة القانونية الوقائية على وجه الخصوص.
+      </p>
+    </div>
+
+    <div className="vmDivider" />
+
+    <div className="vmCol">
+      <h3 className="vmTitle">الرسالة</h3>
+      <p className="vmText">
+        مواكبة التطور والتغيرات التشريعية، وابتكار أفضل الطرق الحديثة وممارستها، والسعي لخلق
+        بيئة عمل محفزة نستقطب بها الكفاءات المميزة في جميع المجالات القانونية
+      </p>
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+    </div>
+
+    <button
+      type="button"
+      className="btnGhost aboutToggle"
+      onClick={() => setAboutOpen((v) => !v)}
+      aria-expanded={aboutOpen}
+      aria-controls="aboutMore"
+    >
+      {aboutOpen ? "إخفاء" : "المزيد.."}
+    </button>
+  </div>
+</section>
 
         <section id="services" className="section sectionAlt reveal" data-reveal style={{ background: "#faf7f8" }}>
           <div className="containerWide">
