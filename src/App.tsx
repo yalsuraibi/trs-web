@@ -4,6 +4,16 @@ import type { ReactNode } from "react"
 import client1 from "./assets/clients/client1.png"
 import client2 from "./assets/clients/client2.png"
 import client3 from "./assets/clients/client3.png"
+import client4 from "./assets/clients/client4.png"
+import client5 from "./assets/clients/client5.png"
+import client6 from "./assets/clients/client6.png"
+import client7 from "./assets/clients/client7.png"
+import client8 from "./assets/clients/client8.png"
+import client9 from "./assets/clients/client9.png"
+import client10 from "./assets/clients/client10.png"
+import client11 from "./assets/clients/client11.png"
+import client12 from "./assets/clients/client12.png"
+import client13 from "./assets/clients/client13.png"
 type Service = {
   title: string
   icon: ReactNode
@@ -133,10 +143,20 @@ const services: Service[] = [
   { title: "استلام القصايا امام المحاكم والتمثيل القانوني بها (مرافعة/مدافعة)", icon: <ServiceIconCourt /> }
 ]
 
+const documentationServices: Service[] = [
+  { title: "توثيق العقود والاتفاقيات", icon: <ServiceIconContract /> },
+  { title: "توثيق الإقرارات والتعهدات", icon: <ServiceIconChecklist /> },
+  { title: "توثيق محاضر الاجتماعات", icon: <ServiceIconMeeting /> },
+  { title: "توثيق الوكالات والتفويضات", icon: <ServiceIconMail /> },
+  { title: "توثيق التعديلات على العقود", icon: <ServiceIconPolicy /> },
+  { title: "توثيق المستندات والعلامات", icon: <ServiceIconTrademark /> }
+]
+
 function App() {
+  
   const [aboutOpen, setAboutOpen] = useState(false)
   const scrollerRef = useRef<HTMLDivElement | null>(null)
-
+  const [activeServiceTab, setActiveServiceTab] = useState<"sector" | "documentation">("sector")
   const scrollByAmount = (dir: "left" | "right") => {
     const el = scrollerRef.current
     if (!el) return
@@ -148,14 +168,19 @@ function App() {
     { name: "Client1", logo: client1, scale: 1.6, y: -12 },
     { name: "Client2", logo: client2, scale: 1.5, y: 0},
     { name: "Client3", logo: client3, scale: 2.3, y: -15 },
-    { name: "Client1", logo: client1, scale: 1.6, y: -12 },
-    { name: "Client2", logo: client2, scale: 1.5, y: 0},
-    { name: "Client3", logo: client3, scale: 2.3, y: -15 },
-    { name: "Client1", logo: client1, scale: 1.6, y: -12 },
-    { name: "Client2", logo: client2, scale: 1.5, y: 0},
-    { name: "Client3", logo: client3, scale: 2.3, y: -15 }
+    { name: "Client4", logo: client4, scale: 1.3, y: -12 },
+    { name: "Client5", logo: client5, scale: 1, y: 0},
+    { name: "Client6", logo: client6, scale: 1.2, y: -15 },
+    { name: "Client7", logo: client7, scale: 0.8, y: -12 },
+    { name: "Client8", logo: client8, scale: 1.3, y: -12 },
+    { name: "Client9", logo: client9, scale: 1.7, y: -12 },
+    { name: "Client10", logo: client10, scale: 1, y: -12 },
+    { name: "Client11", logo: client11, scale: 1, y: -12 },
+    { name: "Client12", logo: client12, scale: 1.5, y: -12 },
+    { name: "Client13", logo: client13, scale: 1.5, y: -12 }
   ]
-
+  const displayedServices =
+  activeServiceTab === "sector" ? services : documentationServices
   useEffect(() => {
     const els = document.querySelectorAll<HTMLElement>("[data-reveal]")
     const io = new IntersectionObserver(
@@ -166,10 +191,13 @@ function App() {
       },
       { threshold: 0.12 }
     )
+    
   
     els.forEach((el) => io.observe(el))
     return () => io.disconnect()
   }, [])
+
+  
 
   return (
     <div>
@@ -311,20 +339,38 @@ function App() {
   </div>
 </section>
 
-        <section id="services" className="section sectionAlt reveal" data-reveal style={{ background: "#faf7f8" }}>
-          <div className="containerWide">
-            <h2 className="sectionTitle">الخدمات</h2>
+<section id="services" className="section sectionAlt reveal" data-reveal style={{ background: "#faf7f8" }}>
+  <div className="containerWide">
+    <h2 className="sectionTitle">الخدمات</h2>
 
-            <div className="grid">
-              {services.map((s) => (
-                <div className="card" key={s.title}>
-                  <div className="cardIcon">{s.icon}</div>
-                  <h3 className="cardTitle">{s.title}</h3>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+    <div className="servicesTabs">
+      <button
+        type="button"
+        className={`servicesTab ${activeServiceTab === "sector" ? "active" : ""}`}
+        onClick={() => setActiveServiceTab("sector")}
+      >
+        القطاع الخاص/العام
+      </button>
+
+      <button
+        type="button"
+        className={`servicesTab ${activeServiceTab === "documentation" ? "active" : ""}`}
+        onClick={() => setActiveServiceTab("documentation")}
+      >
+        التوثيق
+      </button>
+    </div>
+
+    <div className="grid">
+      {displayedServices.map((s) => (
+        <div className="card" key={s.title}>
+          <div className="cardIcon">{s.icon}</div>
+          <h3 className="cardTitle">{s.title}</h3>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
 
 <section id="clients" className="section">
         <div className="containerWide">
@@ -396,6 +442,7 @@ function App() {
     loading="lazy"
     referrerPolicy="no-referrer-when-downgrade"
   />
+ 
 </div>
           </div>
         </section>
@@ -404,6 +451,20 @@ function App() {
           <div className="container">© {new Date().getFullYear()} TRS</div>
         </footer>
       </main>
+      <a
+  href="https://wa.me/966500000000"
+  className="whatsappFloat"
+  target="_blank"
+  rel="noreferrer"
+  aria-label="تواصل عبر واتساب"
+>
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path
+      fill="currentColor"
+      d="M20.52 3.48A11.8 11.8 0 0 0 12.06 0C5.6 0 .33 5.27.33 11.73c0 2.07.54 4.1 1.57 5.89L0 24l6.54-1.72a11.67 11.67 0 0 0 5.52 1.4h.01c6.46 0 11.73-5.27 11.73-11.73 0-3.13-1.22-6.07-3.28-8.47ZM12.07 21.3h-.01a9.6 9.6 0 0 1-4.9-1.35l-.35-.21-3.88 1.02 1.04-3.78-.23-.39a9.55 9.55 0 0 1-1.46-5.08c0-5.3 4.31-9.61 9.62-9.61 2.57 0 4.98 1 6.79 2.81a9.53 9.53 0 0 1 2.82 6.8c0 5.3-4.31 9.61-9.61 9.61Zm5.27-7.19c-.29-.14-1.72-.85-1.99-.95-.27-.1-.46-.14-.66.14-.19.29-.76.95-.93 1.14-.17.19-.34.22-.63.08-.29-.14-1.21-.45-2.31-1.42-.86-.76-1.43-1.7-1.6-1.99-.17-.29-.02-.45.13-.59.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.14-.66-1.59-.9-2.18-.24-.57-.49-.5-.66-.51h-.56c-.19 0-.51.07-.78.36-.27.29-1.02 1-1.02 2.44s1.04 2.82 1.19 3.01c.14.19 2.04 3.11 4.94 4.36.69.3 1.23.48 1.65.61.69.22 1.32.19 1.82.12.56-.08 1.72-.7 1.96-1.38.24-.68.24-1.26.17-1.38-.07-.12-.27-.19-.56-.34Z"
+    />
+  </svg>
+</a>
     </div>
   )
 }
