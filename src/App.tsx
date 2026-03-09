@@ -140,20 +140,21 @@ const services: Service[] = [
   },
   { title: "أعمال توثيق العلامات التجارية", icon: <ServiceIconTrademark /> },
   { title: "تولي مهام استحصال مستحقات العميل المتعثرة لدى الغير صلحًا", icon: <ServiceIconCollection /> },
-  { title: "استلام القصايا امام المحاكم والتمثيل القانوني بها (مرافعة/مدافعة)", icon: <ServiceIconCourt /> }
+  { title: "استلام القضايا امام المحاكم والتمثيل القانوني بها (مرافعة/مدافعة)", icon: <ServiceIconCourt /> }
 ]
 
 const documentationServices: Service[] = [
-  { title: "توثيق العقود والاتفاقيات", icon: <ServiceIconContract /> },
-  { title: "توثيق الإقرارات والتعهدات", icon: <ServiceIconChecklist /> },
-  { title: "توثيق محاضر الاجتماعات", icon: <ServiceIconMeeting /> },
-  { title: "توثيق الوكالات والتفويضات", icon: <ServiceIconMail /> },
-  { title: "توثيق التعديلات على العقود", icon: <ServiceIconPolicy /> },
-  { title: "توثيق المستندات والعلامات", icon: <ServiceIconTrademark /> }
+  { title: "توثيق العقار", icon: <ServiceIconContract /> },
+  { title: "توثيق وكالة", icon: <ServiceIconChecklist /> },
+  { title: "توثيق عقد تأسيس شركة", icon: <ServiceIconMeeting /> },
+  { title: "توثيق الدين", icon: <ServiceIconMail /> },
+  { title: "الرهن العقاري", icon: <ServiceIconCompany /> },
+  { title: "فك الرهن العقاري", icon: <ServiceIconCompany /> },
+  { title: "تصحيح الرهن العقاري", icon: <ServiceIconCompany /> }
 ]
 
 function App() {
-  
+
   const [aboutOpen, setAboutOpen] = useState(false)
   const scrollerRef = useRef<HTMLDivElement | null>(null)
   const [activeServiceTab, setActiveServiceTab] = useState<"sector" | "documentation">("sector")
@@ -218,19 +219,61 @@ function App() {
       </header>
 
       <main>
-        <section className="hero">
+        <section className="hero heroSection">
+          <svg
+  className="heroCurve"
+  viewBox="0 0 600 600"
+  preserveAspectRatio="none"
+>
+  <path
+    d="M0,120 C200,20 350,350 500,600"
+    stroke="url(#curveGradient)"
+    strokeWidth="3"
+    fill="none"
+  />
+
+  <defs>
+    <linearGradient id="curveGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#81A5C6" stopOpacity="0.9" />
+      <stop offset="100%" stopColor="#81A5C6" stopOpacity="0.2" />
+    </linearGradient>
+  </defs>
+</svg>
           <div className="containerWide">
             <h1 className="heroTitle">نقطة انطلاقك قبـــــــــــــل اتخــــاذ أي قــــرار</h1>
             <p className="heroText">حلول قانونية حديثــــــــــــــــــــــــــــــــــة</p>
 
             <div className="heroButtons">
-              <button className="btnPrimary">اتصل الآن</button>
-              <button className="btnGhost">راسلنا</button>
+              <a href="tel:+966500000000" className="btnPrimary">
+  اتصل الآن
+</a>
+              <a href="#contact" className="btnGhost">
+  راسلنا
+</a>
             </div>
           </div>
         </section>
 
-        <section id="about" className="section">
+        <section id="about" className="section aboutSection">
+          <svg
+  className="aboutCurve"
+  viewBox="0 0 600 600"
+  preserveAspectRatio="none"
+>
+  <path
+    d="M0,120 C200,20 350,350 500,600"
+    stroke="url(#curveGradient2)"
+    strokeWidth="3"
+    fill="none"
+  />
+
+  <defs>
+    <linearGradient id="curveGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#d9b27c" stopOpacity="0.9" />
+      <stop offset="100%" stopColor="#d9b27c" stopOpacity="0.2" />
+    </linearGradient>
+  </defs>
+</svg>
   <div className="containerWide">
     <h2 className="sectionTitle">من نحن</h2>
 
@@ -270,7 +313,7 @@ function App() {
 </svg>
         </div>
         <h4>الترس</h4>
-        <p>ضع وصفكم هنا كما في التصميم. استبدله بالنص الحقيقي لاحقاً.</p>
+        <p>صحيفة من الفولاذ مستديرة يحملها المحارب في ذراعه للوقاية من الضربات.</p>
       </div>
 
       <div className="whyCard">
@@ -282,8 +325,8 @@ function App() {
             <path d="M12 15v3" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
           </svg>
         </div>
-        <h4>التُرس</h4>
-        <p>ضع وصفكم هنا كما في التصميم. استبدله بالنص الحقيقي لاحقاً.</p>
+        <h4>التُّرْسُ</h4>
+        <p>قطعة من الحديد توضع خلف الباب لإِحكام إِغلاقة.</p>
       </div>
 
       <div className="whyCard">
@@ -295,7 +338,7 @@ function App() {
           </svg>
         </div>
         <h4>الترس</h4>
-        <p>ضع وصفكم هنا كما في التصميم. استبدله بالنص الحقيقي لاحقاً.</p>
+        <p>قطعة مستديرة مسنّنة و ناقلة للحركة في الساعة ونحو ذلك.</p>
       </div>
     </div>
   </div>

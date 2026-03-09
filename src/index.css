@@ -164,7 +164,7 @@ a:hover {
   border: 1px solid var(--brand2);
   padding: 12px 16px;
   border-radius: 999px;
-  font-weight: 700;
+  font-weight: 500;
   cursor: pointer;
 }
 
@@ -174,7 +174,7 @@ a:hover {
   border: 1px solid rgba(233, 207, 218, 0.55);
   padding: 12px 16px;
   border-radius: 999px;
-  font-weight: 700;
+  font-weight: 500;
   cursor: pointer;
 }
 
@@ -411,7 +411,7 @@ section[id] {
   width: 72px;
   height: 72px;
   margin: 0 auto 10px;
-  color: #b08f78; /* beige icon stroke */
+  color: var(--brand2); /* beige icon stroke */
 }
 
 .whyCard h4 {
@@ -448,7 +448,7 @@ section[id] {
 .vmDivider {
   width: 2px;
   height: 180px;
-  background: rgba(233, 207, 218, 0.55); /* brand2 with transparency */
+  background: rgba(255, 255, 255, 0.55); /* brand2 with transparency */
   justify-self: center;
 }
 
@@ -462,7 +462,7 @@ section[id] {
 
 .vmText {
   margin: 0;
-  color: rgba(233, 207, 218, 0.95); /* brand2 */
+  color: var(--brand2); /* brand2 */
   font-weight: 300;
   font-size: 26px;
   line-height: 1.9;
@@ -526,4 +526,33 @@ section[id] {
   width: 34px;
   height: 34px;
   display: block;
+}
+
+
+.aboutSection {
+  position: relative;
+  overflow: hidden;
+}
+
+.aboutCurve {
+  position: absolute;
+  left: -120px;
+  top: -60px;
+  width: 700px;
+  height: 700px;
+  pointer-events: none;
+  opacity: 0.55;
+}
+.heroSection {
+  position: relative;
+  overflow: hidden;
+}
+.heroCurve {
+  position: absolute;
+  left: -20px;
+  top: -20px;
+  width: 700px;
+  height: 500px;
+  pointer-events: none;
+  opacity: 1;
 }
