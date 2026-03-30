@@ -464,7 +464,7 @@ section[id] {
   margin: 0;
   color: var(--brand2); /* brand2 */
   font-weight: 300;
-  font-size: 26px;
+  font-size: 22px;
   line-height: 1.9;
 }
 
@@ -555,4 +555,27 @@ section[id] {
   height: 500px;
   pointer-events: none;
   opacity: 1;
+}
+
+.socialRow {
+  display: flex;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+
+
+.socialRow a:hover {
+  transform: scale(1.15);
+}
+.socialRow a {
+  font-size: 20px;
+  color: var(--brand2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.socialRow a svg {
+  fill: currentColor;
 }

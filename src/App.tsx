@@ -1,4 +1,6 @@
 import logo from "./assets/Logo_Ar2.png"
+import { FaInstagram, FaTiktok } from "react-icons/fa"
+import { FaXTwitter } from "react-icons/fa6"
 import { useEffect, useRef, useState  } from "react"
 import type { ReactNode } from "react"
 import client1 from "./assets/clients/client1.png"
@@ -118,6 +120,8 @@ const ServiceIconCourt = () => (
     <path d="M12 3v7" />
   </svg>
 )
+
+
 
 const services: Service[] = [
   { title: "إعداد ومراجعة كافة العقود القانونية", icon: <ServiceIconContract /> },
@@ -251,6 +255,19 @@ function App() {
   راسلنا
 </a>
             </div>
+            <div className="socialRow">
+  <a href="https://instagram.com/trslawsa" target="_blank" rel="noreferrer">
+    <FaInstagram />
+  </a>
+
+  <a href="https://x.com/trslawsa" target="_blank" rel="noreferrer">
+    <FaXTwitter />
+  </a>
+
+  <a href="https://tiktok.com/@trslawsa" target="_blank" rel="noreferrer">
+    <FaTiktok />
+  </a>
+</div>
           </div>
         </section>
 
@@ -313,7 +330,7 @@ function App() {
 </svg>
         </div>
         <h4>الترس</h4>
-        <p>صحيفة من الفولاذ مستديرة يحملها المحارب في ذراعه للوقاية من الضربات.</p>
+        <p>قطعة مستديرة مسنّنة و ناقلة للحركة في الساعة ونحو ذلك.</p>
       </div>
 
       <div className="whyCard">
@@ -338,7 +355,7 @@ function App() {
           </svg>
         </div>
         <h4>الترس</h4>
-        <p>قطعة مستديرة مسنّنة و ناقلة للحركة في الساعة ونحو ذلك.</p>
+        <p>صحيفة من الفولاذ مستديرة يحملها المحارب في ذراعه للوقاية من الضربات.</p>
       </div>
     </div>
   </div>
@@ -450,9 +467,23 @@ function App() {
               <div className="card">
                 <h3 className="cardTitle">معلومات التواصل</h3>
                 <p className="cardText">المدينة: الرياض</p>
-                <p className="cardText">الهاتف: 000000000</p>
-                <p className="cardText">البريد: info@trs.com</p>
+                <p className="cardText">الهاتف: 0537374555</p>
+                <p className="cardText">البريد: info@trslaw.net</p>
+                 <div className="socialRow">
+  <a href="https://instagram.com/trslawsa" target="_blank" rel="noreferrer">
+    <FaInstagram />
+  </a>
+
+  <a href="https://x.com/trslawsa" target="_blank" rel="noreferrer">
+    <FaXTwitter />
+  </a>
+
+  <a href="https://tiktok.com/@trslawsa" target="_blank" rel="noreferrer">
+    <FaTiktok />
+  </a>
+</div>
               </div>
+              
 
               
 
