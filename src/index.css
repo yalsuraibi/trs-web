@@ -26,7 +26,8 @@
 
 :root {
   --brand1: #541f2f;
-  --brand2: rgba(129, 165, 198);
+  --brand2: #b08f78;
+  --brand4: rgba(129, 165, 198);
   --brand3: #151515;
 
   --bg: #ffffff;
@@ -109,7 +110,7 @@ a:hover {
   display: flex;
   gap: 22px;
   font-weight: 550;
-  color: var(--subtext);
+  color: var(--brand1);
 }
 
 .logoRow {
@@ -146,7 +147,7 @@ a:hover {
 .heroText {
   margin: 16px 0 0;
   max-width: 640px;
-  color: rgba(129, 165, 198);
+  color: var(--brand2);
   font-weight: 400;
   font-size: 18px;
 }
@@ -160,7 +161,7 @@ a:hover {
 
 .btnPrimary {
   background: var(--brand2);
-  color: var(--brand1);
+  color: rgba(255, 255, 255, 1);
   border: 1px solid var(--brand2);
   padding: 12px 16px;
   border-radius: 999px;
@@ -170,7 +171,7 @@ a:hover {
 
 .btnGhost {
   background: transparent;
-  color: var(--brand2);
+  color: rgba(255, 255, 255, 1);
   border: 1px solid rgba(233, 207, 218, 0.55);
   padding: 12px 16px;
   border-radius: 999px;
@@ -366,9 +367,7 @@ section[id] {
   max-height: 1000px; /* increase if you add more text */
 }
 
-.aboutToggle {
-  margin-top: 16px;
-}
+
 
 .aboutMore {
   opacity: 0;
@@ -578,4 +577,29 @@ section[id] {
 
 .socialRow a svg {
   fill: currentColor;
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.heroCityImage {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 46%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.50;
+  pointer-events: none;
+  z-index: 0;
+
+  -webkit-mask-image: linear-gradient(to right, black 0%, black 45%, transparent 100%);
+  mask-image: linear-gradient(to right, black 0%, black 45%, transparent 100%);
+}
+
+.hero .containerWide {
+  position: relative;
+  z-index: 2;
 }

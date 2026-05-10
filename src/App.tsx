@@ -3,6 +3,7 @@ import { FaInstagram, FaTiktok } from "react-icons/fa"
 import { FaXTwitter } from "react-icons/fa6"
 import { useEffect, useRef, useState  } from "react"
 import type { ReactNode } from "react"
+import heroCity from "./assets/hero-city.png"
 import client1 from "./assets/clients/client1.png"
 import client2 from "./assets/clients/client2.png"
 import client3 from "./assets/clients/client3.png"
@@ -159,7 +160,7 @@ const documentationServices: Service[] = [
 
 function App() {
 
-  const [aboutOpen, setAboutOpen] = useState(false)
+ 
   const scrollerRef = useRef<HTMLDivElement | null>(null)
   const [activeServiceTab, setActiveServiceTab] = useState<"sector" | "documentation">("sector")
   const scrollByAmount = (dir: "left" | "right") => {
@@ -216,7 +217,7 @@ function App() {
           <nav className="nav">
             <a href="#about">من نحن</a>
             <a href="#services">الخدمات</a>
-            <a href="#clients">عملاؤنا</a>
+            <a href="#clients">شركاؤنا</a>
             <a href="#contact">تواصل</a>
           </nav>
         </div>
@@ -224,25 +225,10 @@ function App() {
 
       <main>
         <section className="hero heroSection">
-          <svg
-  className="heroCurve"
-  viewBox="0 0 600 600"
-  preserveAspectRatio="none"
->
-  <path
-    d="M0,120 C200,20 350,350 500,600"
-    stroke="url(#curveGradient)"
-    strokeWidth="3"
-    fill="none"
-  />
+          <img className="heroCityImage" src={heroCity} alt="" aria-hidden="true" />
+          
+      
 
-  <defs>
-    <linearGradient id="curveGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stopColor="#81A5C6" stopOpacity="0.9" />
-      <stop offset="100%" stopColor="#81A5C6" stopOpacity="0.2" />
-    </linearGradient>
-  </defs>
-</svg>
           <div className="containerWide">
             <h1 className="heroTitle">نقطة انطلاقك قبـــــــــــــل اتخــــاذ أي قــــرار</h1>
             <p className="heroText">حلول قانونية حديثــــــــــــــــــــــــــــــــــة</p>
@@ -271,7 +257,7 @@ function App() {
           </div>
         </section>
 
-        <section id="about" className="section aboutSection">
+        <section id="about" className="section reveal" data-reveal>
           <svg
   className="aboutCurve"
   viewBox="0 0 600 600"
@@ -294,7 +280,7 @@ function App() {
   <div className="containerWide">
     <h2 className="sectionTitle">من نحن</h2>
 
-    <div className={`aboutBox ${aboutOpen ? "isOpen" : ""}`}>
+    <div className="aboutBox isOpen">
       <p className="sectionText">
         تـرس، هــي شركــة مـحامـــاة مـتخصصــــــة في تـقديـــــم الخـدمــــات الاسـتشاريـة
         والحــلول الــقانــونــية ومهــتمة في تــفعيل ورفــع الــوعــي بــالــدور الــوقــائي لــدى
@@ -387,15 +373,7 @@ function App() {
 </div>
     </div>
 
-    <button
-      type="button"
-      className="btnGhost aboutToggle"
-      onClick={() => setAboutOpen((v) => !v)}
-      aria-expanded={aboutOpen}
-      aria-controls="aboutMore"
-    >
-      {aboutOpen ? "إخفاء" : "المزيد.."}
-    </button>
+    
   </div>
 </section>
 
