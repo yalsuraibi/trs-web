@@ -1,4 +1,12 @@
 /* src/index.css */
+html,
+body {
+  overflow-x: hidden;
+}
+
+#root {
+  overflow-x: hidden;
+}
 
 @font-face {
   font-family: "IBMPlexSansArabic";
@@ -77,16 +85,16 @@ a:hover {
   opacity: 0.85;
 }
 .containerWide {
-  width: min(1400px, calc(100% - 80px));
+  width: min(1600px, calc(100% - 32px));
   margin: 0 auto;
 }
 .container {
-  width: min(1120px, calc(100% - 48px));
+  width: min(1200px, calc(100% - 32px));
   margin: 0 auto;
 }
 
 .headerContainer {
-  width: min(1400px, calc(100% - 80px));
+  width: min(1600px, calc(100% - 32px));
   margin: 0 auto;
 }
 
@@ -147,7 +155,7 @@ a:hover {
 .heroText {
   margin: 16px 0 0;
   max-width: 640px;
-  color: var(--brand2);
+  color: var(--brand4);
   font-weight: 400;
   font-size: 18px;
 }
@@ -192,9 +200,9 @@ a:hover {
 
 .sectionText {
   margin: 0;
-  color: var(--brand3);
-  max-width: 760px;
-  font-weight: 500;
+  color: var(--brand2);
+  max-width: 980px;
+  font-weight: 700;
 }
 
 .grid {
@@ -353,31 +361,14 @@ section[id] {
   transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
-.aboutBox {
-  position: relative;
-}
-
 .aboutMore {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 320ms ease;
-}
-
-.aboutBox.isOpen .aboutMore {
-  max-height: 1000px; /* increase if you add more text */
-}
-
-
-
-.aboutMore {
-  opacity: 0;
-  transform: translateY(6px);
-  transition: max-height 320ms ease, opacity 220ms ease, transform 220ms ease;
-}
-
-.aboutBox.isOpen .aboutMore {
+  max-height: none;
+  overflow: visible;
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
+  display: flex;
+  flex-direction: column;
+  gap: 90px;
 }
 
 .whyWrap {
@@ -423,7 +414,7 @@ section[id] {
 .whyCard p {
   margin: 0;
   color: #b08f78;
-  font-weight: 300;
+  font-weight: 500;
   font-size: 22px;
   line-height: 1.8;
 }
@@ -462,7 +453,7 @@ section[id] {
 .vmText {
   margin: 0;
   color: var(--brand2); /* brand2 */
-  font-weight: 300;
+  font-weight: 400;
   font-size: 22px;
   line-height: 1.9;
 }
@@ -602,4 +593,121 @@ section[id] {
 .hero .containerWide {
   position: relative;
   z-index: 2;
+}
+
+#about .sectionText {
+  max-width: 1150px;
+}
+
+.valuesSection {
+  margin-top: 90px;
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 50px;
+  align-items: start;
+}
+
+.valuesTitle h3 {
+  margin: 0 0 18px;
+  color: var(--brand1);
+  font-size: 64px;
+  line-height: 1;
+  font-weight: 700;
+}
+
+.valuesTitle p {
+  margin: 0;
+  color: var(--brand1);
+  font-size: 18px;
+  line-height: 1.8;
+  font-weight: 400;
+}
+
+.valuesGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 40px;
+}
+
+.valueCard {
+  text-align: center;
+}
+
+.valueNumber {
+  display: block;
+  margin-bottom: 18px;
+  color: var(--brand4);
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.valueCard h4 {
+  margin: 0 0 18px;
+  color: var(--brand1);
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.valueCard p {
+  margin: 0;
+  color: var(--brand2);
+  font-size: 18px;
+  line-height: 1.7;
+  font-weight: 700;
+}
+
+.founderSection {
+  position: relative;
+  margin-top: 0;
+  background: var(--brand1);
+  overflow: hidden;
+  padding: 56px 70px;
+  border-radius: 32px;
+  overflow: hidden;
+}
+
+.founderSection::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 12px;
+  background: var(--brand4);
+}
+
+.founderContent {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  max-width: 980px;
+
+  margin-right: 0;
+  margin-left: auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  text-align: right;
+}
+
+.founderContent h2 {
+  margin: 0 0 30px;
+  color: white;
+  font-size: 48px;
+  line-height: 1;
+  font-weight: 700;
+}
+
+.founderContent p {
+  margin: 0;
+  color: var(--brand2);
+  font-size: 22px;
+  line-height: 1.8;
+  font-weight: 400;
+  width: 100%;
+  text-align: right;
 }

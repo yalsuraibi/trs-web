@@ -4,19 +4,27 @@ import { FaXTwitter } from "react-icons/fa6"
 import { useEffect, useRef, useState  } from "react"
 import type { ReactNode } from "react"
 import heroCity from "./assets/hero-city.png"
-import client1 from "./assets/clients/client1.png"
-import client2 from "./assets/clients/client2.png"
-import client3 from "./assets/clients/client3.png"
-import client4 from "./assets/clients/client4.png"
-import client5 from "./assets/clients/client5.png"
-import client6 from "./assets/clients/client6.png"
-import client7 from "./assets/clients/client7.png"
+import nawafeth from "./assets/clients/nawafeth.png"
+import khrb from "./assets/clients/khrb.png"
+import asmara from "./assets/clients/asmara.png"
+import livelink from "./assets/clients/livelink.png"
+import inspireu from "./assets/clients/inspireu.png"
+import sald from "./assets/clients/sald.png"
+import everteam from "./assets/clients/everteam.png"
 import client8 from "./assets/clients/client8.png"
-import client9 from "./assets/clients/client9.png"
-import client10 from "./assets/clients/client10.png"
-import client11 from "./assets/clients/client11.png"
-import client12 from "./assets/clients/client12.png"
-import client13 from "./assets/clients/client13.png"
+import amar from "./assets/clients/amar.png"
+import dar from "./assets/clients/dar.png"
+import cleanco from "./assets/clients/cleanco.png"
+import faselah from "./assets/clients/faselah.png"
+import perfection from "./assets/clients/perfection.png"
+import intalio from "./assets/clients/intalio.png"
+import ics from "./assets/clients/ics.png"
+import misco from "./assets/clients/misco.png"
+import hessa from "./assets/clients/hessa.png"
+import fsmc from "./assets/clients/fsmc.png"
+import aked from "./assets/clients/aked.png"
+import mrakeez from "./assets/clients/mrakeez.png"
+import more from "./assets/clients/more.png"
 type Service = {
   title: string
   icon: ReactNode
@@ -171,19 +179,27 @@ function App() {
   }
 
   const clients = [
-    { name: "Client1", logo: client1, scale: 1.6, y: -12 },
-    { name: "Client2", logo: client2, scale: 1.5, y: 0},
-    { name: "Client3", logo: client3, scale: 2.3, y: -15 },
-    { name: "Client4", logo: client4, scale: 1.3, y: -12 },
-    { name: "Client5", logo: client5, scale: 1, y: 0},
-    { name: "Client6", logo: client6, scale: 1.2, y: -15 },
-    { name: "Client7", logo: client7, scale: 0.8, y: -12 },
-    { name: "Client8", logo: client8, scale: 1.3, y: -12 },
-    { name: "Client9", logo: client9, scale: 1.7, y: -12 },
-    { name: "Client10", logo: client10, scale: 1, y: -12 },
-    { name: "Client11", logo: client11, scale: 1, y: -12 },
-    { name: "Client12", logo: client12, scale: 1.5, y: -12 },
-    { name: "Client13", logo: client13, scale: 1.5, y: -12 }
+    { name: "intalio", logo: intalio, scale: 1, y: -12 },
+    { name: "everteam", logo: everteam, scale: 0.8, y: -12 },
+    { name: "ics", logo: ics, scale: 1.3, y: -12 },
+    { name: "inspireu", logo: inspireu, scale: 1, y: 0},
+    { name: "misco", logo: misco, scale: 1.3, y: 0},
+    { name: "hessa", logo: hessa, scale: 0.9, y: 0},
+    { name: "livelink", logo: livelink, scale: 1.3, y: -12 },
+    { name: "fsmc", logo: fsmc, scale: 2, y: -12 },
+    { name: "aked", logo: aked, scale: 1.5, y: -12 },
+    { name: "mrakeez", logo: mrakeez, scale: 1.3, y: -12 },
+    { name: "more", logo: more, scale: 1.3, y: -12 },
+    { name: "faselah", logo: faselah, scale: 1.5, y: -12 },
+    { name: "nawafeth", logo: nawafeth, scale: 1.6, y: -12 },
+    { name: "khrb", logo: khrb, scale: 1.5, y: 0},
+    { name: "sald", logo: sald, scale: 1.2, y: -15 },
+    { name: "cleanco", logo: cleanco, scale: 1, y: -12 },
+    { name: "amar", logo: amar, scale: 1.7, y: -12 },
+    { name: "dar", logo: dar, scale: 1, y: -12 },
+    { name: "asmara", logo: asmara, scale: 2.3, y: -15 },
+    { name: "perfection", logo: perfection, scale: 1.5, y: -12 },
+    { name: "Client8", logo: client8, scale: 1.3, y: -12 }
   ]
   const displayedServices =
   activeServiceTab === "sector" ? services : documentationServices
@@ -368,7 +384,68 @@ function App() {
   </div>
 </div>
 
+<div className="valuesSection">
+  <div className="valuesTitle">
+    <h3>قيمنا</h3>
 
+    <p>
+      تعتبر قيمنا في شركة ترس، الأساس الراسخ لكل فعل وإجراء نقدمه لخدمة العملاء
+      وتشمل قيمنا الآتي:
+    </p>
+  </div>
+
+  <div className="valuesGrid">
+    <div className="valueCard">
+      <span className="valueNumber">01</span>
+      <h4>الأمانة</h4>
+      <p>
+        قيمة أساسية تعكس الشفافية والنزاهة والثقة.
+      </p>
+    </div>
+
+    <div className="valueCard">
+      <span className="valueNumber">02</span>
+      <h4>المسؤولية</h4>
+      <p>
+        الإلتزام بالمسؤولية في كل ما نقول ونعمل وهي مرادف لعمل باحترافية عالية.
+      </p>
+    </div>
+
+    <div className="valueCard">
+      <span className="valueNumber">03</span>
+      <h4>الاعتدال</h4>
+      <p>
+        التوازن في مختلف جوانب العمل وإيجاد حلول وخيارات محايدة.
+      </p>
+    </div>
+
+    <div className="valueCard">
+      <span className="valueNumber">04</span>
+      <h4>الوقاية</h4>
+      <p>
+        نؤمن أن التعامل مع المشكلات قبل حدوثها هي أحد الأسباب الرئيسية للنجاح.
+      </p>
+    </div>
+  </div>
+  
+</div>
+
+<div className="founderSection">
+  <div className="founderContent">
+    <h2>كلمة المؤسس</h2>
+
+    <p>
+      ولدت في أحضان عائلة قانونية أبًا عن جد وانا جيل من بعدهم جديد، أحمل شغف
+      كبير في المجال القانوني وأخذت على عاتقي العمل فيه بحرفية ومهنية عالية حتى
+      نحمل الأمانة ونؤدي الرسالة ونحقق الهدف بحيث تكون ترس جزء من الدور الريادي
+      الذي تمثله الشركات القانونية المحلية والعالمية، ومع النمو الذي تشهده
+      المملكة العربية السعودية في كافة القطاعات بشكل خاص والعالم بشكل عام فنحن
+      بحاجة أكبر للابتكار وإيجاد الحلول المناسبة والسبل الوقائية للتميز في
+      تقديم الخدمات القانونية المبنية على دراسة كاملة بالتشريعات والأنظمة
+      واللوائح المعمول بها محليًا ودوليًا.
+    </p>
+  </div>
+</div>
 
 </div>
     </div>
