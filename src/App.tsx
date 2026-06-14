@@ -289,7 +289,7 @@ function App() {
   <defs>
     <linearGradient id="curveGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stopColor="#d9b27c" stopOpacity="0.9" />
-      <stop offset="100%" stopColor="#d9b27c" stopOpacity="0.2" />
+      <stop offset="100%" stopColor="#d9b27c" stopOpacity="0" />
     </linearGradient>
   </defs>
 </svg>
@@ -320,7 +320,7 @@ function App() {
     cx="12"
     cy="12"
     r="3"
-    stroke="currentColor"
+    stroke="#7FA8C8"
     strokeWidth="1.8"
   />
   <path
@@ -341,7 +341,7 @@ function App() {
           <svg width="54" height="54" viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path d="M7 11V8a5 5 0 0 1 10 0v3" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
             <path d="M6.5 11h11A1.5 1.5 0 0 1 19 12.5v7A1.5 1.5 0 0 1 17.5 21h-11A1.5 1.5 0 0 1 5 19.5v-7A1.5 1.5 0 0 1 6.5 11Z" stroke="currentColor" strokeWidth="1.6"/>
-            <path d="M12 15v3" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
+            <path d="M12 15v3" stroke="#7FA8C8" strokeWidth="1.8" strokeLinecap="round"/>
           </svg>
         </div>
         <h4>التُّرْسُ</h4>
@@ -353,7 +353,13 @@ function App() {
           {/* Shield icon */}
           <svg width="54" height="54" viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path d="M12 3l8 4v6c0 5-3.4 8.7-8 10-4.6-1.3-8-5-8-10V7l8-4Z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round"/>
-            <path d="M8.5 12.5l2.2 2.2 4.8-5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+            <path
+  d="M8.5 12.5l2.2 2.2 4.8-5"
+  stroke="#7FA8C8"
+  strokeWidth="1.8"
+  strokeLinecap="round"
+  strokeLinejoin="round"
+/>
           </svg>
         </div>
         <h4>الترس</h4>
@@ -431,6 +437,8 @@ function App() {
 </div>
 
 <div className="founderSection">
+<div className="founderQuote founderQuoteOpen">❝</div>
+<div className="founderQuote founderQuoteClose">❞</div>
   <div className="founderContent">
     <h2>كلمة المؤسس</h2>
 
@@ -489,7 +497,7 @@ function App() {
 
 <section id="clients" className="section">
         <div className="containerWide">
-          <h2 className="sectionTitle">عملاؤنا</h2>
+          <h2 className="sectionTitle">شركاؤنا</h2>
           <p className="sectionText">نماذج من الجهات التي تشرفنا بخدمتها.</p>
 
           <div className="clientsWrap">
@@ -516,7 +524,7 @@ function App() {
         <section id="contact" className="section sectionAlt reveal" data-reveal style={{ background: "#faf7f8" }}>
           <div className="containerWide">
             <h2 className="sectionTitle">تواصل معنا</h2>
-            <p className="sectionText">بيانات التواصل نص تجريبي. </p>
+            <p className="sectionText"> </p>
 
             <div className="grid">
               <div className="card">
@@ -558,26 +566,13 @@ function App() {
                 </form>
               </div>
 
-              
-
-            </div>
-            <div style={{ marginTop: 12, borderRadius: 14, overflow: "hidden", border: "1px solid var(--border)" }}>
-              <iframe
-    title="موقع المكتب"
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14493.578764868067!2d46.642787273927986!3d24.747653054351755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2ee2bdce7f6e45%3A0x2c54683f7a107fc4!2z2YXYtdix2YEg2KfZhNix2KfYrNit2YogfCBhbHJhamhpIGJhbms!5e0!3m2!1sen!2sus!4v1771812994277!5m2!1sen!2sus"
-    width="100%"
-    height="320"
-    style={{ border: 0, display: "block" }}
-    loading="lazy"
-    referrerPolicy="no-referrer-when-downgrade"
-  />
  
 </div>
           </div>
         </section>
 
         <footer className="footer">
-          <div className="container">© {new Date().getFullYear()} TRS</div>
+          <div className="container">© {new Date().getFullYear()} TRS | السجل التجاري: 7038090853</div>
         </footer>
       </main>
       <a

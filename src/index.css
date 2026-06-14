@@ -711,3 +711,31 @@ section[id] {
   width: 100%;
   text-align: right;
 }
+
+.founderQuote {
+  position: absolute;
+  font-size: 90px;
+  line-height: 1;
+  color: white;
+
+  /* beige outline */
+  
+
+  z-index: 10;
+  pointer-events: none;
+}
+
+.founderQuoteOpen {
+  top: 100px;
+  left: 120px;
+}
+
+.founderQuoteClose {
+  bottom: -20px;
+  right: 20px;
+}
+
+.founderSection {
+  width: calc(100% - 400px);
+  margin: 0 auto;
+}
