@@ -168,7 +168,7 @@ const documentationServices: Service[] = [
 
 function App() {
 
- 
+  const [showToast, setShowToast] = useState(false)
   const scrollerRef = useRef<HTMLDivElement | null>(null)
   const [activeServiceTab, setActiveServiceTab] = useState<"sector" | "documentation">("sector")
   const scrollByAmount = (dir: "left" | "right") => {
@@ -250,7 +250,7 @@ function App() {
             <p className="heroText">حلول قانونية حديثــــــــــــــــــــــــــــــــــة</p>
 
             <div className="heroButtons">
-              <a href="tel:+966500000000" className="btnPrimary">
+              <a href="tel:+966537374555" className="btnPrimary">
   اتصل الآن
 </a>
               <a href="#contact" className="btnGhost">
@@ -286,12 +286,7 @@ function App() {
     fill="none"
   />
 
-  <defs>
-    <linearGradient id="curveGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stopColor="#d9b27c" stopOpacity="0.9" />
-      <stop offset="100%" stopColor="#d9b27c" stopOpacity="0" />
-    </linearGradient>
-  </defs>
+
 </svg>
   <div className="containerWide">
     <h2 className="sectionTitle">من نحن</h2>
@@ -553,17 +548,37 @@ function App() {
 
               <div className="card">
                 <h3 className="cardTitle">أرسل رسالة</h3>
-                <form style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-                  <input placeholder="الاسم" style={{ padding: 12, borderRadius: 10, border: "1px solid var(--border)" }} />
-                  <input
-                    placeholder="البريد الإلكتروني"
-                    style={{ padding: 12, borderRadius: 10, border: "1px solid var(--border)" }}
-                  />
-                  <textarea placeholder="الرسالة" rows={4} style={{ padding: 12, borderRadius: 10, border: "1px solid var(--border)" }} />
-                  <button className="btnPrimary" type="button">
-                    إرسال
-                  </button>
-                </form>
+                <form
+  style={{ display: "flex", flexDirection: "column", gap: 10 }}
+  onSubmit={async (e) => {
+    e.preventDefault()
+
+    const form = e.currentTarget
+    const formData = new FormData(form)
+
+    await fetch("https://script.google.com/macros/s/AKfycbwOuDQwBGRUZyo7iAkV582giD5fu3n18jf1d2-apuB6J5f4TkcDcK0Yl7z4tFRUP1k/exec", {
+      method: "POST",
+      mode: "no-cors",
+      body: JSON.stringify({
+        name: formData.get("name"),
+        email: formData.get("email"),
+        message: formData.get("message"),
+      }),
+    })
+
+    setShowToast(true)
+
+setTimeout(() => {
+  setShowToast(false)
+}, 4000)
+    form.reset()
+  }}
+>
+  <input name="name" placeholder="الاسم" style={{ padding: 12, borderRadius: 10, border: "1px solid var(--border)" }} />
+  <input name="email" placeholder="البريد الإلكتروني" style={{ padding: 12, borderRadius: 10, border: "1px solid var(--border)" }} />
+  <textarea name="message" placeholder="الرسالة" rows={4} style={{ padding: 12, borderRadius: 10, border: "1px solid var(--border)" }} />
+  <button className="btnPrimary" type="submit">إرسال</button>
+</form>
               </div>
 
  
@@ -574,9 +589,21 @@ function App() {
         <footer className="footer">
           <div className="container">© {new Date().getFullYear()} TRS | السجل التجاري: 7038090853</div>
         </footer>
+        {showToast && (
+  <div className="toast">
+    <div className="toastIcon">✓</div>
+
+    <div>
+      <div className="toastTitle">تم إرسال الرسالة بنجاح</div>
+      <div className="toastText">
+        سنقوم بالتواصل معكم في أقرب وقت ممكن.
+      </div>
+    </div>
+  </div>
+)}
       </main>
       <a
-  href="https://wa.me/966500000000"
+  href="https://wa.me/966537374555"
   className="whatsappFloat"
   target="_blank"
   rel="noreferrer"
